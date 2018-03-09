@@ -1,0 +1,123 @@
+.weui-tabbar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%
+}
+
+#rec_nav {
+    display: flex;
+    text-align: center;
+    width: 100%;
+    font-size: 0.667rem;
+}
+
+#rec_nav a {
+    padding: 1.5em 0 1em;
+    display: block;
+    flex: 1;
+    color: #000;
+}
+
+.recn_ico {
+    width: 50%;
+    height: 0;
+    padding-top: 50%;
+    font-size: 18px;
+    color: #bb2c08;
+    border: 1px solid #bb2c08;
+    border-radius: 50%;
+    margin: 0 auto 0.5em;
+    font-weight: 100;
+    position: relative;
+    line-height: 0;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+.recn_ico span {
+    position: absolute;
+    top: 55%;
+    transform: translateY(-50%);
+    width: 100%;
+    left: 0;
+}
+
+.recn_ico img {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#album_loading {
+    text-align: center;
+    color: #999;
+    padding: 2em 0;
+}
+
+#album_loading img {
+    width: 12%;
+    animation: circle infinite 1.5s linear;
+    display: block;
+    margin: 1em auto;
+    border-radius: 50%;
+    border: 1px solid #999;
+}
+
+.tab {
+    position: fixed;
+    width: 100%;
+    top: 40px;
+    z-index: 10;
+    max-width: 750px;
+}
+
+.page_tab {
+    padding-top: 3em;
+}
+
+#lastsearch {
+    line-height: 1;
+    padding-top: 20px;
+    flex: 0 0 80px;
+}
+
+.homepl .tl_cnt {
+    width: 168.75px;
+}
+
+#header_search {
+    flex: 1;
+    color: #999;
+    background: #fff;
+    border-radius: 2em;
+    text-align: center;
+    margin: 0 0.3em;
+    height: 28px;
+    line-height: 28px;
+    display: block;
+}
+
+#plc_header {
+    border: none;
+}
+
+.djcatewrap {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.djcatelist {
+    text-align: center;
+    font-size: 24px;
+    flex: 0 0 187.5px;
+    height: 145px;
+}
+
+.djcatelist image {
+    width: 80px;
+    height: 80px;
+    margin-top: 20px;
+}
