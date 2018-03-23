@@ -4,31 +4,33 @@ import {
   ViewEncapsulation,
   Output,
   EventEmitter
-} from "@angular/core";
-import { Router } from "@angular/router";
+} from '@angular/core';
+import { Router } from '@angular/router';
 @Component({
-  selector: "playaction",
-  styleUrls: ["./playaction.component.css"],
-  templateUrl: "./playaction.component.html",
+  selector: 'app-comp-playaction',
+  styleUrls: ['./playaction.component.css'],
+  templateUrl: './playaction.component.html',
   encapsulation: ViewEncapsulation.None
 })
 export class PlayActionComponent {
   constructor(private router: Router) {}
-  @Input() commentscount: Number = 0;
-  @Input() playtime;
-  @Input() shuffle_am: any = 1;
-  @Input() shuffle_dj: any = 1;
-  @Input() playtype: any = 1;
-  @Input() playing: Boolean;
-  @Input() music: any;
-  @Input() star: any;
+  @Input() commentscount;
+  @Input() playtime: Number = 0;
+  @Input() shuffle_am: Number = 1;
+  @Input() shuffle_dj: Number = 1;
+  @Input() playtype: Number = 1;
+  @Input() playing: Boolean = false;
+  @Input() music: any = {};
+  @Input() star: Boolean = false;
   @Output() Esetplaying = new EventEmitter<boolean>();
-  @Output() EseekMusic=new EventEmitter<Number>()
+  @Output() EseekMusic = new EventEmitter<Number>();
+  @Output() EnextFm = new EventEmitter();
   seekmusic(v) {
-    console.log(v)
-    this.EseekMusic.emit(v)
+    this.EseekMusic.emit(v);
   }
-  nextfm() {}
+  nextfm() {
+    this.EnextFm.emit();
+  }
   heart() {}
   setplaying() {
     this.Esetplaying.emit(!this.playing);

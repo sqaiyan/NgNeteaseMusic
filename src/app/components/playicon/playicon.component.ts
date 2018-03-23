@@ -1,6 +1,6 @@
-import { Component, Input } from "@angular/core";
+import { Component, Input } from '@angular/core';
 @Component({
-  selector: "playicon",
+  selector: 'app-comp-playicon',
   styles: [
     `.cntloading {
     position: relative;
@@ -37,10 +37,10 @@ import { Component, Input } from "@angular/core";
     animation: none;
 }`
   ],
-  templateUrl: "playicon.component.html"
+  templateUrl: 'playicon.component.html'
 })
 export class PlayIconComponent {
   playing: Boolean = true;
   playtype: Number = 1;
-  music: Object={id:2};
+  music = { id: 2, pic_str: '', pic: '' };
 }

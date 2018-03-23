@@ -1,11 +1,13 @@
-<el-carousel arrow="always">
-    <el-carousel-item *ngFor="let item of banner;let idx=index" [index]="idx">
-        <div class="small">
-            <img src="{{item.pic}}" class="banner-item" alt=""></div>
+<!-- 
+<el-carousel arrow="always" [height]="bannerheight">
+    <el-carousel-item *ngFor="let item of banner">
+        <img src="{{item.pic}}" class="banner-item" alt="">
     </el-carousel-item>
 </el-carousel>
-
-
+ -->
+<nz-carousel nzAutoPlay>
+    <div nz-carousel-content *ngFor="let item of banner"> <img src="{{item.pic}}" class="banner-item" alt=""></div>
+</nz-carousel>
 <div *ngIf="!loaded" id="album_loading"><img src="../../assets/images/cm2_discover_icn_start_big@2x.png" alt=""> 正在为您生成个性化推荐...</div>
 <div *ngIf="loaded">
     <div id="rec_nav">
@@ -27,7 +29,7 @@
         </a>
     </div>
 
-    <div class="listheader"><span>推荐歌单</span><img src="../../assets/images/common_icon_arrow@2x.png" alt="" /></div>
+    <a routerLink="../playlist" class="listheader"><span>推荐歌单</span><img src="../../assets/images/common_icon_arrow@2x.png" alt="" /></a>
     <div class="flex-boxlist">
         <a routerLink="/playlist/{{item.id}}" class="tl_cnt" *ngFor="let item of rec_pl">
             <div class="cover">

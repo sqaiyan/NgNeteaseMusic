@@ -1,17 +1,15 @@
-import { Component, Input, ViewChild,ViewEncapsulation } from "@angular/core";
-import { ToastComponent } from "ngx-weui/toast";
-import { Router} from "@angular/router";
+import { Component, Input, ViewChild, ViewEncapsulation } from '@angular/core';
+import { ToastComponent } from 'ngx-weui/toast';
+import { Router } from '@angular/router';
 @Component({
-  selector: "songlist",
+  selector: 'app-comp-songlist',
   styles: [
     `.flexnum img {
 		width: 1.3em
 	}
-	
 	.topindex {
 		color: #BB2C08;
 	}
-	
 	.ftp {
 		font-size: .5em;
 		font-weight: lighter;
@@ -22,28 +20,32 @@ import { Router} from "@angular/router";
 		width: auto;
 	}`
   ],
-  templateUrl: "songlist.component.html",
+  templateUrl: 'songlist.component.html',
   encapsulation: ViewEncapsulation.None
 })
 export class SongListComponent {
   constructor(private router: Router) {}
-  @ViewChild("toast") tipToast: ToastComponent;
-  @Input() nonum: String = "";
+  @ViewChild('toast') tipToast: ToastComponent;
+  @Input() nonum = 1;
   @Input() curplay: Number = -1;
   @Input() trackids: Array<Object>;
-  @Input() toplist: String = "";
+  @Input() toplist: any;
   @Input() privileges: Array<Object>;
-  @Input() list: Array<Object>;
+  @Input() list: any;
 
   playindex(index, re, privileges) {
-    //歌曲下架st<0
-    if ((re.privilege&&re.privilege.st<0)||(privileges&&privileges[index].st<0)) {
+    // 歌曲下架st<0
+    if (
+      (re.privilege && re.privilege.st < 0) ||
+      (privileges && privileges[index].st < 0)
+    ) {
       this.tipToast.onShow();
       return;
     }
-    this.router.navigate(['playing',re.id],{ queryParams: { img: re.al.pic_str || re.al.pic } });
-    // this.router.push(url)
-    // this.$store.commit("setbgmchange", false)
-    // this.$emit("playindex", index)
+    this.router.navigate(['playing', re.id], {
+      queryParams: { img: re.al.pic_str || re.al.pic }
+    });
+    // this.$store.commit('setbgmchange', false)
+    // this.$emit('playindex', index)
   }
 }

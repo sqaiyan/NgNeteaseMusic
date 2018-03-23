@@ -74,13 +74,9 @@ body {
 }
 
 .we-header {
-    -webkit-box-align: center;
-    -ms-flex-align: center;
     align-items: center;
     box-sizing: border-box;
     color: #fff;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
     font-size: 14px;
     height: 40px;
@@ -114,8 +110,6 @@ body {
 }
 
 .we-header-button {
-    -webkit-box-flex: .5;
-    -ms-flex: .5;
     flex: .5
 }
 
@@ -137,8 +131,6 @@ body {
     white-space: nowrap;
     font-size: inherit;
     font-weight: 400;
-    -webkit-box-flex: 1;
-    -ms-flex: 1;
     flex: 1
 }
 
@@ -207,7 +199,7 @@ a {
 
 .box-txt-e {
     text-overflow: ellipsis;
-    display: box;
+    display: flex;
     overflow: hidden;
 }
 
@@ -930,7 +922,7 @@ a {
     left: 50%;
     top: 50%;
     margin-left: .5em;
-    margin-top: -1.5em;
+    margin-top: -1.6em;
     color: #fff;
 }
 
@@ -1853,7 +1845,7 @@ a {
     -webkit-transition: .3s;
     transition: .3s;
     border-radius: 50%;
-    background-color: rgba(31, 45, 61, .11);
+    background-color: rgba(31, 45, 61, .4);
     color: #fff;
     position: absolute;
     top: 50%;
@@ -1877,7 +1869,18 @@ a {
 }
 
 .el-carousel__arrow i {
-    cursor: pointer
+    cursor: pointer;
+    border: 2px solid #fff;
+    border-width: 2px 0 0 2px;
+    transform: rotate(-45deg);
+    width: 8px;
+    height: 8px;
+    display: inline-block
+}
+
+.el-carousel__arrow--right i {
+    border-width: 2px 2px 0 0;
+    transform: rotate(45deg);
 }
 
 .el-carousel__indicators {
@@ -1917,13 +1920,6 @@ a {
     text-align: center
 }
 
-.el-carousel__indicators--labels .el-carousel__button {
-    height: auto;
-    width: auto;
-    padding: 2px 18px;
-    font-size: 12px
-}
-
 .el-carousel__indicators--labels .el-carousel__indicator {
     padding: 6px 4px
 }
@@ -1940,22 +1936,23 @@ a {
 }
 
 .el-carousel__indicator.is-active button {
-    opacity: 1
+    opacity: 1;
+    background-color: #BB2C08
 }
 
 .el-carousel__button {
     display: block;
     opacity: .48;
-    width: 30px;
-    height: 2px;
-    background-color: #fff;
+    background-color: #aaa;
     border: none;
     outline: 0;
     padding: 0;
     margin: 0;
     cursor: pointer;
     -webkit-transition: .3s;
-    transition: .3s
+    transition: .3s;
+    padding: 3px;
+    border-radius: 50%
 }
 
 .carousel-arrow-left-enter,

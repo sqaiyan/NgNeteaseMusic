@@ -5,36 +5,33 @@ import {
   Inject,
   Input,
   OnInit
-} from "@angular/core";
-import { SafeStyle, DomSanitizer } from "@angular/platform-browser";
-import { ElCarousel } from "./carousel";
-import {removeNgTag} from "../../utils/utils"
+} from '@angular/core';
+import { SafeStyle, DomSanitizer } from '@angular/platform-browser';
+import { ElCarousel } from './carousel';
+import {removeNgTag} from '../../utils/utils'
 import { AnimationTriggerMetadata, trigger, state, style, animate, transition } from '@angular/animations'
 @Component({
-  selector: "el-carousel-item",
+  selector: 'el-carousel-item',
   template: `
-    <div class="el-carousel__item"
-      [class.is-active]="isActive"
+    <div class='el-carousel__item'
+      [class.is-active]='isActive'
       [class.el-carousel__item--card]="root.type === 'card'"
-      [class.is-animating]="isAnimating"
-      [style]="styles">
-      <!--<div class="el-carousel__mask" *ngIf="root.type === 'card'"-->
-        <!--[@fadeAnimation]="isActive()">-->
-      <!--</div>-->
-      <ng-content></ng-content>
-    </div>
+      [class.is-animating]='isAnimating'
+      [style]='styles'>
+      <ng-content></ng-content></div>
   `
 })
 export class ElCarouselItem implements OnInit {
   // parent component will set index
   @Input() index: number;
-  @Input() label: string = "";
+  @Input() label: string = '';
 
   // oninit set
   width: number;
 
   preTranslate: number;
   isAnimating: boolean;
+  // tslint:disable-next-line:no-inferrable-types
   isActive: boolean = false;
   styles: SafeStyle;
 
@@ -52,14 +49,15 @@ export class ElCarouselItem implements OnInit {
   }
   updateStyles(): void {
     const map: any = {
-      "1": 0 - this.width,
-      "-1": this.width,
-      "2": this.width,
-      "-2": 0 - this.width,
-      "0": 0
+      '1': 0 - this.width,
+      '-1': this.width,
+      '2': this.width,
+      '-2': 0 - this.width,
+      '0': 0
     };
     const offset: number = this.root.model - this.index;
     const translate = map[offset];
+    // tslint:disable-next-line:no-inferrable-types
     const styles: string = `transform: translateX(${translate}px);`;
     // change direction disable animation
     const changeDirection: boolean =
